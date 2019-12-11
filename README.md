@@ -11,7 +11,7 @@ Technology
 MVP
 ====
 * create list, add items, update lists
-..* mark items as packed
+* mark items as packed
 * save lists for later use
 * lists can be sorted by category ie. season or type of travel
 
