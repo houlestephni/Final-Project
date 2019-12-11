@@ -5,6 +5,7 @@ Technology
 ====
 * React
 * Ruby on Rails
+* PostgreSQL
 * CSS Framework like Bootstrap or Skeleton
 
 MVP
