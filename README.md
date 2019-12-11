@@ -1,4 +1,4 @@
-# Packing List App - Final-Project 
+# Packing List App - Final Project 
 
 
 Technology 
