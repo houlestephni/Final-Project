@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import NewItem from "./NewItem";
 
-class List extends Component {
+class NewItem extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,11 +10,10 @@ class List extends Component {
   render() {
     return (
       <div>
-        <h1>List</h1>
-        <NewItem />
+        <button>Add an Item</button>
       </div>
     );
   }
 }
 
-export default List;
+export default NewItem;
