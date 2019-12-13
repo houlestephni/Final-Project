@@ -13,7 +13,7 @@ class List extends Component {
   render() {
     return (
       <div>
-        <h1>List</h1>
+        <h1>List: {this.props.allLists[0].name}</h1>
         {this.props.listItems.map((listItems, index) => {
           return <div key={index}>{listItems}</div>;
         })}

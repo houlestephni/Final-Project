@@ -31,7 +31,7 @@ class NewItem extends Component {
           <input value={this.state.term} onChange={this.handleChange} />
           <button>Add New Item</button>
         </form>
-        <List listItems={this.state.listItems} />
+        <List allLists={this.props.allLists} listItems={this.state.listItems} />
       </div>
     );
   }
