@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
-import List from "./components/List";
+import AddList from "./components/AddList";
+// import AllLists from "./components/AllLists";
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div className="App">
         <h1>Packing List</h1>
-        <List />
+        {/* <AllLists /> */}
+        <AddList />
       </div>
     );
   }
