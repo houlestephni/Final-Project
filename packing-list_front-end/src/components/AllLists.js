@@ -1,23 +1,41 @@
 import React, { Component } from "react";
-import AddList from "./AddList";
+import NewItem from "./NewItem";
 
 class AllLists extends Component {
   constructor() {
     super();
     this.state = {
-      allLists: []
+      allLists: [],
+      selectedList: false
     };
+    this.selectList = this.selectList.bind(this);
   }
 
+  selectList(event) {
+    event.preventDefault();
+    this.setState({
+      selectedList: true
+    });
+    console.log("clicked");
+  }
   //make axios call to get all lists
   // render the lists names
 
   render() {
     return (
       <div>
-        <h1>All Lists</h1>
-        {this.props.allLists[0].name}
-        {/* <AddList /> */}
+        {this.state.selectedList ? (
+          <NewItem allLists={this.props.allLists} />
+        ) : (
+          <div>
+            <h1>All Lists</h1>
+            {this.props.allLists.map((allLists, index) => (
+              <div onClick={this.selectList} key={index}>
+                {allLists.name}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
