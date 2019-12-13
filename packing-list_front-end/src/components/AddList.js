@@ -12,7 +12,6 @@ class AddList extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    console.log("clicked create");
     this.setState({
       createList: true
     });

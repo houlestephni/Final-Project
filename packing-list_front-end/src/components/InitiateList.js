@@ -5,36 +5,42 @@ class InitiateList extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      destination: "",
-      category: "",
+      list: {
+        name: "",
+        destination: "",
+        category: ""
+      },
+      allLists: [],
       listCreated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  handleChange(event) {
+    event.preventDefault();
+    this.setState({
+      list: {
+        ...this.state.list,
+        [event.currentTarget.name]: event.currentTarget.value
+      }
+    });
+  }
   handleSubmit(event) {
     event.preventDefault();
     // console.log(this.state);
     this.setState({
+      list: {},
+      allLists: [...this.state.allLists, this.state.list],
       listCreated: true
     });
-    const formData = {
-      name: this.state.name,
-      destination: this.state.destination,
-      category: this.state.category
-    };
-  }
-  handleChange(event) {
-    event.preventDefault();
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+    console.log(this.state.allLists);
   }
 
   render() {
     return (
       <div>
         {this.state.listCreated ? (
-          <AllLists name={this.state.name} />
+          <AllLists allLists={this.state.allLists} />
         ) : (
           <form onSubmit={this.handleSubmit}>
             <input

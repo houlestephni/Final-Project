@@ -8,10 +8,10 @@ class NewItem extends Component {
       term: " ",
       listItems: []
     };
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  onChange(event) {
+  handleChange(event) {
     this.setState({ term: event.target.value });
   }
   handleSubmit(event) {
@@ -28,7 +28,7 @@ class NewItem extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input value={this.state.term} onChange={this.onChange} />
+          <input value={this.state.term} onChange={this.handleChange} />
           <button>Add New Item</button>
         </form>
         <List listItems={this.state.listItems} />

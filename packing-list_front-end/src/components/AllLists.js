@@ -5,7 +5,7 @@ class AllLists extends Component {
   constructor() {
     super();
     this.state = {
-      lists: []
+      allLists: []
     };
   }
 
@@ -16,8 +16,8 @@ class AllLists extends Component {
     return (
       <div>
         <h1>All Lists</h1>
-        {this.props.name}
-        <AddList />
+        {this.props.allLists[0].name}
+        {/* <AddList /> */}
       </div>
     );
   }
