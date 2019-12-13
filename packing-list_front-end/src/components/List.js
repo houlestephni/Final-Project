@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NewItem from "./NewItem";
+// import NewItem from "./NewItem";
 
 class List extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class List extends Component {
       <div>
         <h1>List</h1>
         {this.props.listItems.map((listItems, index) => {
-          return <li key={index}>{listItems}</li>;
+          return <div key={index}>{listItems}</div>;
         })}
       </div>
     );

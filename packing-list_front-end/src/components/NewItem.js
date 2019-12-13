@@ -20,8 +20,8 @@ class NewItem extends Component {
       term: "",
       listItems: [...this.state.listItems, this.state.term]
     });
-    console.log("submitted");
-    console.log(this.state.listItems);
+    // console.log("submitted");
+    // console.log(this.state.listItems);
   }
 
   render() {
