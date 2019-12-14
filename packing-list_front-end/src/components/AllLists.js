@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import NewItem from "./NewItem";
 
 class AllLists extends Component {
@@ -9,8 +10,19 @@ class AllLists extends Component {
       selectedList: false
     };
     this.selectList = this.selectList.bind(this);
+    this.getLists = this.getLists.bind(this);
   }
-
+  componentDidMount() {
+    this.getLists();
+  }
+  async getLists() {
+    const response = await axios("/lists");
+    const data = response.data;
+    console.log(data);
+    this.setState({
+      allLists: data
+    });
+  }
   selectList(event) {
     event.preventDefault();
     this.setState({
