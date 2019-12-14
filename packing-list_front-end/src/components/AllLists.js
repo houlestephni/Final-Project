@@ -28,20 +28,17 @@ class AllLists extends Component {
     this.setState({
       selectedList: true
     });
-    console.log("clicked");
   }
-  //make axios call to get all lists
-  // render the lists names
 
   render() {
     return (
       <div>
         {this.state.selectedList ? (
-          <NewItem allLists={this.props.allLists} />
+          <NewItem allLists={this.state.allLists} />
         ) : (
           <div>
             <h1>All Lists</h1>
-            {this.props.allLists.map((allLists, index) => (
+            {this.state.allLists.map((allLists, index) => (
               <div onClick={this.selectList} key={index}>
                 {allLists.name}
               </div>
