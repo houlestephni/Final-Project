@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-import NewItem from "./NewItem";
+// import NewItem from "./NewItem";
+import List from "./List";
 
 class AllLists extends Component {
   constructor() {
     super();
     this.state = {
       allLists: [],
-      selectedList: false
+      selectedList: false,
+      list: null
     };
     this.selectList = this.selectList.bind(this);
     this.getLists = this.getLists.bind(this);
@@ -18,29 +20,34 @@ class AllLists extends Component {
   async getLists() {
     const response = await axios("/lists");
     const data = response.data;
-    console.log(data);
+    // console.log(data);
     this.setState({
       allLists: data
     });
   }
-  selectList(event) {
-    event.preventDefault();
+  selectList(list) {
     this.setState({
-      selectedList: true
+      selectedList: true,
+      list: list
     });
   }
 
   render() {
+    const { allLists, list } = this.state;
     return (
       <div>
         {this.state.selectedList ? (
-          <NewItem allLists={this.state.allLists} />
+          <List allLists={allLists} list={list} />
         ) : (
           <div>
             <h1>All Lists</h1>
-            {this.state.allLists.map((allLists, index) => (
-              <div onClick={this.selectList} key={index}>
-                {allLists.name}
+            {allLists.map(list => (
+              <div
+                onClick={() => this.selectList(list)}
+                id={list.id}
+                key={list.id}
+              >
+                {list.name}
               </div>
             ))}
           </div>

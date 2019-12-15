@@ -5,16 +5,19 @@ class List extends Component {
   constructor() {
     super();
     this.state = {
-      term: " ",
+      // term: " ",
       listItems: []
     };
   }
 
   render() {
+    const { allLists, list } = this.props;
     return (
       <div>
-        <h1>List: {this.props.allLists.name}</h1>
-        {this.props.listItems.map((listItems, index) => {
+        <h1>List: {list.name}</h1>
+        <h4>Category:{list.category}</h4>
+        <h4>Season:{list.season}</h4>
+        {list.items.map((listItems, index) => {
           return <div key={index}>{listItems}</div>;
         })}
       </div>
