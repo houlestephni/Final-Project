@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import InitiateList from "./InitiateList";
+import NewListForm from "./NewListForm";
 
 class AddList extends Component {
   constructor() {
@@ -24,7 +24,7 @@ class AddList extends Component {
         {this.state.createList && <InitiateList />} */}
 
         {this.state.createList ? (
-          <InitiateList />
+          <NewListForm handleSubmit={this.props.handleAddList} />
         ) : (
           <button onClick={this.onSubmit}>Create New List</button>
         )}

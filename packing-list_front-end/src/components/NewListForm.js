@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import AllLists from "./AllLists";
+import axios from "axios";
 
-class InitiateList extends Component {
+class NewListForm extends Component {
   constructor() {
     super();
     this.state = {
       list: {
         name: "",
         destination: "",
-        category: ""
+        category: "",
+        season: "",
+        items: []
       },
-      allLists: [],
+      // allLists: [],
       listCreated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,15 +28,30 @@ class InitiateList extends Component {
       }
     });
   }
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   // console.log(this.state);
+  //   this.setState({
+  //     list: {},
+  //     allLists: [...this.state.allLists, this.state.list],
+  //     listCreated: true
+  //   });
+  //   console.log(this.state.allLists);
+  // }
   handleSubmit(event) {
     event.preventDefault();
-    // console.log(this.state);
-    this.setState({
-      list: {},
-      allLists: [...this.state.allLists, this.state.list],
-      listCreated: true
+    this.props.handleAddList(event, {
+      name: this.state.name,
+      destination: this.state.destination,
+      category: this.state.category,
+      season: this.state.season
     });
-    console.log(this.state.allLists);
+    // this.setState({
+    //   // allLists: [...this.state.allLists, this.state.list],
+    //   listCreated: true
+    // });
+
+    // console.log(this.state.list);
   }
 
   render() {
@@ -67,6 +85,14 @@ class InitiateList extends Component {
               onChange={this.handleChange}
               placeholder="Category"
             ></input>
+            <input
+              type="text"
+              id="season"
+              name="season"
+              value={this.state.season}
+              onChange={this.handleChange}
+              placeholder="Season"
+            ></input>
             <input type="submit" value="Enter"></input>
           </form>
         )}
@@ -74,4 +100,4 @@ class InitiateList extends Component {
     );
   }
 }
-export default InitiateList;
+export default NewListForm;

@@ -1,29 +1,14 @@
 import React, { Component } from "react";
-import axios from "axios";
-// import NewItem from "./NewItem";
 import List from "./List";
 
 class AllLists extends Component {
   constructor() {
     super();
     this.state = {
-      allLists: [],
       selectedList: false,
       list: null
     };
     this.selectList = this.selectList.bind(this);
-    this.getLists = this.getLists.bind(this);
-  }
-  componentDidMount() {
-    this.getLists();
-  }
-  async getLists() {
-    const response = await axios("/lists");
-    const data = response.data;
-    // console.log(data);
-    this.setState({
-      allLists: data
-    });
   }
   selectList(list) {
     this.setState({
@@ -33,7 +18,8 @@ class AllLists extends Component {
   }
 
   render() {
-    const { allLists, list } = this.state;
+    const { allLists } = this.props;
+    const { list } = this.state;
     return (
       <div>
         {this.state.selectedList ? (
