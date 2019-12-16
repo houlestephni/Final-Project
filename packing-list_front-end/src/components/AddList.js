@@ -24,7 +24,10 @@ class AddList extends Component {
         {this.state.createList && <InitiateList />} */}
 
         {this.state.createList ? (
-          <NewListForm handleSubmit={this.props.handleAddList} />
+          <NewListForm
+            handleSubmit={this.props.handleAddList}
+            allLists={this.props.allLists}
+          />
         ) : (
           <button onClick={this.onSubmit}>Create New List</button>
         )}

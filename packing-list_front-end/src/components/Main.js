@@ -35,7 +35,7 @@ class Main extends Component {
     const { allLists } = this.state;
     return (
       <div>
-        <AddList handleSubmit={this.handleAddList} />
+        <AddList handleSubmit={this.handleAddList} allLists={allLists} />
         <AllLists getLists={this.getLists} allLists={allLists} />
       </div>
     );

@@ -6,14 +6,11 @@ class NewListForm extends Component {
   constructor() {
     super();
     this.state = {
-      list: {
-        name: "",
-        destination: "",
-        category: "",
-        season: "",
-        items: []
-      },
-      // allLists: [],
+      name: "",
+      destination: "",
+      category: "",
+      season: "",
+      items: [],
       listCreated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,10 +19,7 @@ class NewListForm extends Component {
   handleChange(event) {
     event.preventDefault();
     this.setState({
-      list: {
-        ...this.state.list,
-        [event.currentTarget.name]: event.currentTarget.value
-      }
+      [event.currentTarget.name]: event.currentTarget.value
     });
   }
   // handleSubmit(event) {
@@ -38,20 +32,16 @@ class NewListForm extends Component {
   //   });
   //   console.log(this.state.allLists);
   // }
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    this.props.handleAddList(event, {
+    const list = {
       name: this.state.name,
       destination: this.state.destination,
       category: this.state.category,
       season: this.state.season
-    });
-    // this.setState({
-    //   // allLists: [...this.state.allLists, this.state.list],
-    //   listCreated: true
-    // });
-
-    // console.log(this.state.list);
+    };
+    await axios.post("./lists", list);
+    console.log(list);
   }
 
   render() {
