@@ -40,8 +40,7 @@ class NewListForm extends Component {
     const list = {
       name: this.state.name,
       destination: this.state.destination,
-      category: this.state.category,
-      season: this.state.season
+      category: this.state.category
     };
     await axios.post("./lists", list);
     // console.log(list);
@@ -77,14 +76,6 @@ class NewListForm extends Component {
               value={this.state.category}
               onChange={this.handleChange}
               placeholder="Category"
-            ></input>
-            <input
-              type="text"
-              id="season"
-              name="season"
-              value={this.state.season}
-              onChange={this.handleChange}
-              placeholder="Season"
             ></input>
             <input type="submit" value="Enter"></input>
           </form>
