@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AllLists from "./AllLists";
+import Main from "./Main";
 import axios from "axios";
 
 class NewListForm extends Component {
@@ -34,6 +34,9 @@ class NewListForm extends Component {
   // }
   async handleSubmit(event) {
     event.preventDefault();
+    this.setState({
+      listCreated: true
+    });
     const list = {
       name: this.state.name,
       destination: this.state.destination,
@@ -41,14 +44,14 @@ class NewListForm extends Component {
       season: this.state.season
     };
     await axios.post("./lists", list);
-    console.log(list);
+    // console.log(list);
   }
 
   render() {
     return (
       <div>
         {this.state.listCreated ? (
-          <AllLists allLists={this.state.allLists} />
+          <Main />
         ) : (
           <form onSubmit={this.handleSubmit}>
             <input

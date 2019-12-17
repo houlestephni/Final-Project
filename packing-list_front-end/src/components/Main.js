@@ -10,32 +10,27 @@ class Main extends Component {
       allLists: []
     };
     this.getLists = this.getLists.bind(this);
-    this.handleAddList = this.handleAddList.bind(this);
+    // this.handleAddList = this.handleAddList.bind(this);
   }
-  componentDidMount() {
-    this.getLists();
-  }
+
   async getLists() {
     const response = await axios("/lists");
     const data = response.data;
-    // console.log(data);
     this.setState({
       allLists: data
     });
-    console.log(this.state.allLists);
+    // console.log(this.state.allLists);
   }
-  handleAddList(event, list) {
-    event.preventDefault();
-    // await axios.post("/lists", newList);
 
-    console.log(this.state.list);
+  componentDidMount() {
+    this.getLists();
   }
 
   render() {
     const { allLists } = this.state;
     return (
       <div>
-        <AddList handleSubmit={this.handleAddList} allLists={allLists} />
+        <AddList allLists={allLists} />
         <AllLists getLists={this.getLists} allLists={allLists} />
       </div>
     );

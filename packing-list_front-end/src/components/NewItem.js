@@ -1,28 +1,48 @@
 import React, { Component } from "react";
 import List from "./List";
+import axios from "axios";
 
 class NewItem extends Component {
   constructor() {
     super();
     this.state = {
-      term: " ",
-      listItems: [],
-      allLists: []
+      item: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState({ term: event.target.value });
+    this.setState({ item: event.target.value });
   }
-  handleSubmit(event) {
+  // async handleSubmit(event) {
+  //   event.preventDefault();
+  //   const item = [...this.props.list.items, this.state.item];
+  //   // await axios.put(`/lists/${this.props.list.id}`);
+  //   this.setState({
+  //     // item: "",
+  //     item: [...this.props.list.items, this.props.list.items]
+  //   });
+
+  //   console.log("submitted");
+  //   console.log(item);
+  //   console.log(this.state.item);
+  // }
+  async handleSubmit(event) {
     event.preventDefault();
+    // console.log(this.props.list.items);
+    const newItem = this.state.item;
     this.setState({
-      term: "",
-      listItems: [...this.state.listItems, this.state.term]
+      list: {
+        name: this.props.list.name,
+        destination: this.props.list.destination,
+        category: this.props.list.category,
+        season: this.props.list.season,
+        items: this.props.list.items.concat(newItem)
+      }
     });
-    // console.log("submitted");
-    // console.log(this.state.listItems);
+    await axios.put(`/lists/${this.props.list.id}`, this.state.list);
+    console.log(newItem);
+    console.log(this.state.items);
   }
 
   render() {
@@ -32,7 +52,7 @@ class NewItem extends Component {
           <input value={this.state.term} onChange={this.handleChange} />
           <button>Add New Item</button>
         </form>
-        {/* <List allLists={this.props.allLists} listItems={this.state.listItems} /> */}
+        {/* <List /> */}
       </div>
     );
   }
