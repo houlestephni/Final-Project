@@ -10,7 +10,6 @@ class Main extends Component {
       allLists: []
     };
     this.getLists = this.getLists.bind(this);
-    // this.handleAddList = this.handleAddList.bind(this);
   }
 
   async getLists() {

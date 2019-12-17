@@ -20,7 +20,7 @@ class List extends Component {
     this.setState({
       allItems: data
     });
-    console.log(this.state.allItems);
+    // console.log(this.state.allItems);
   }
 
   render() {
@@ -34,7 +34,7 @@ class List extends Component {
         {allItems.map(item => {
           return <div key={item.id}>{item.name}</div>;
         })}
-        <NewItem list={list} />
+        <NewItem allItems={allItems} list={list} />
       </div>
     );
   }
