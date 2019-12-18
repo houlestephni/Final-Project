@@ -23,7 +23,9 @@ class AddList extends Component {
         {this.state.createList ? (
           <NewListForm allLists={this.props.allLists} />
         ) : (
-          <button onClick={this.onSubmit}>Create New List</button>
+          <button className="button is-danger is-large" onClick={this.onSubmit}>
+            Create New List
+          </button>
         )}
       </div>
     );
