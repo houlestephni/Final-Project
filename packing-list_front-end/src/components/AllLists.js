@@ -3,6 +3,12 @@ import List from "./List";
 import axios from "axios";
 import AddList from "./AddList";
 
+let base_url = "https://alpacabag.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
+
 class AllLists extends Component {
   constructor() {
     super();
@@ -19,7 +25,7 @@ class AllLists extends Component {
     this.getLists();
   }
   async getLists() {
-    const response = await axios("/lists");
+    const response = await axios(`${base_url}/lists`);
     const data = response.data;
     this.setState({
       allLists: data

@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import NewItem from "./NewItem";
 import axios from "axios";
 
+let base_url = "https://alpacabag.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
+
 class List extends Component {
   constructor() {
     super();
@@ -18,7 +24,7 @@ class List extends Component {
     this.getItems();
   }
   async getItems() {
-    const response = await axios(`/lists/${this.props.list.id}`);
+    const response = await axios(`${base_url}/lists/${this.props.list.id}`);
     const data = response.data.items;
     this.setState({
       allItems: data

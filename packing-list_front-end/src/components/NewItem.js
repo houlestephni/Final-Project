@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+let base_url = "https://alpacabag.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
+
 class NewItem extends Component {
   constructor() {
     super();
@@ -19,7 +25,7 @@ class NewItem extends Component {
       list_id: this.props.list.id,
       name: this.state.item
     };
-    await axios.post(`./lists/${this.props.list.id}/items`, item);
+    await axios.post(`${base_url}/lists/${this.props.list.id}/items`, item);
     this.setState({
       item: ""
     });

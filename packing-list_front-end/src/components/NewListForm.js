@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import AllLists from "./AllLists";
 import axios from "axios";
 
+let base_url = "https://alpacabag.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
+
 class NewListForm extends Component {
   constructor() {
     super();
@@ -37,7 +43,7 @@ class NewListForm extends Component {
       destination: this.state.destination,
       category: this.state.category
     };
-    await axios.post("./lists", list);
+    await axios.post(`${base_url}/lists`, list);
     // console.log(list);
     this.setState({
       listCreated: true,
