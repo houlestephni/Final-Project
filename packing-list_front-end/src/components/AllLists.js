@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import List from "./List";
 import axios from "axios";
+import AddList from "./AddList";
 
 class AllLists extends Component {
   constructor() {
@@ -41,6 +42,9 @@ class AllLists extends Component {
           <List allLists={allLists} list={list} />
         ) : (
           <div>
+            <div>
+              <AddList />
+            </div>
             {allLists.map(list => (
               <div
                 className="listDiv"

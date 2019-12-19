@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import "bulma/css/bulma.css";
 
-import AddList from "./components/AddList";
 import AllLists from "./components/AllLists";
 import Welcome from "./components/Welcome";
 import Nav from "./components/Nav";
@@ -24,7 +23,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="page-container">
         <div className="pageContent">
           <Nav />
           {this.state.seeLists ? (
@@ -47,9 +46,6 @@ class App extends Component {
                       >
                         See Lists
                       </button>
-                      <div className="column">
-                        <AddList />
-                      </div>
                     </div>
                   </div>
                 </div>

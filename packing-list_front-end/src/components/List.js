@@ -56,8 +56,8 @@ class List extends Component {
     return (
       <div>
         <h1>List Name: {list.name}</h1>
-        <h4>Destination: {list.destination}</h4>
-        <h4>Category: {list.category}</h4>
+        <h3>Destination: {list.destination}</h3>
+        <h3>Category: {list.category}</h3>
         <NewItem allItems={allItems} list={list} getItems={this.getItems} />
         {allItems.map(item => {
           return (
