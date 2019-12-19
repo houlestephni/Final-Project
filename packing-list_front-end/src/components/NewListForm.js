@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import AllLists from "./AllLists";
+import Main from "./Main";
+import axios from "axios";
 
-class InitiateList extends Component {
+class NewListForm extends Component {
   constructor() {
     super();
     this.state = {
-      list: {
-        name: "",
-        destination: "",
-        category: ""
-      },
-      allLists: [],
+      name: "",
+      destination: "",
+      category: "",
+      season: "",
+      items: [],
       listCreated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,28 +19,38 @@ class InitiateList extends Component {
   handleChange(event) {
     event.preventDefault();
     this.setState({
-      list: {
-        ...this.state.list,
-        [event.currentTarget.name]: event.currentTarget.value
-      }
+      [event.currentTarget.name]: event.currentTarget.value
     });
   }
-  handleSubmit(event) {
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   // console.log(this.state);
+  //   this.setState({
+  //     list: {},
+  //     allLists: [...this.state.allLists, this.state.list],
+  //     listCreated: true
+  //   });
+  //   console.log(this.state.allLists);
+  // }
+  async handleSubmit(event) {
     event.preventDefault();
-    // console.log(this.state);
     this.setState({
-      list: {},
-      allLists: [...this.state.allLists, this.state.list],
       listCreated: true
     });
-    console.log(this.state.allLists);
+    const list = {
+      name: this.state.name,
+      destination: this.state.destination,
+      category: this.state.category
+    };
+    await axios.post("./lists", list);
+    // console.log(list);
   }
 
   render() {
     return (
       <div>
         {this.state.listCreated ? (
-          <AllLists allLists={this.state.allLists} />
+          <Main />
         ) : (
           <form onSubmit={this.handleSubmit}>
             <input
@@ -74,4 +84,4 @@ class InitiateList extends Component {
     );
   }
 }
-export default InitiateList;
+export default NewListForm;

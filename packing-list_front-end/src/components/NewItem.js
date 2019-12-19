@@ -1,27 +1,25 @@
 import React, { Component } from "react";
-import List from "./List";
+import axios from "axios";
 
 class NewItem extends Component {
   constructor() {
     super();
     this.state = {
-      term: " ",
-      listItems: []
+      item: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState({ term: event.target.value });
+    this.setState({ item: event.target.value });
   }
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      term: "",
-      listItems: [...this.state.listItems, this.state.term]
-    });
-    // console.log("submitted");
-    // console.log(this.state.listItems);
+    const item = {
+      list_id: this.props.list.id,
+      name: this.state.item
+    };
+    await axios.post(`./lists/${this.props.list.id}/items`, item);
   }
 
   render() {
@@ -31,7 +29,6 @@ class NewItem extends Component {
           <input value={this.state.term} onChange={this.handleChange} />
           <button>Add New Item</button>
         </form>
-        <List allLists={this.props.allLists} listItems={this.state.listItems} />
       </div>
     );
   }
