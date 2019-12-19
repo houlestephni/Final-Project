@@ -20,12 +20,15 @@ class NewItem extends Component {
       name: this.state.item
     };
     await axios.post(`./lists/${this.props.list.id}/items`, item);
+    this.setState({
+      item: ""
+    });
+    this.props.getItems();
   }
 
   render() {
     return (
       <div>
-        {/* <div className="field is-grouped-center"> */}
         <form onSubmit={this.handleSubmit}>
           <div className="field has-addons has-addons-centered">
             <div className="control">

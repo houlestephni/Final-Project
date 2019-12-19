@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Main from "./Main";
+import AllLists from "./AllLists";
 import axios from "axios";
 
 class NewListForm extends Component {
@@ -9,8 +9,6 @@ class NewListForm extends Component {
       name: "",
       destination: "",
       category: "",
-      season: "",
-      items: [],
       listCreated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,9 +32,6 @@ class NewListForm extends Component {
   // }
   async handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      listCreated: true
-    });
     const list = {
       name: this.state.name,
       destination: this.state.destination,
@@ -44,13 +39,20 @@ class NewListForm extends Component {
     };
     await axios.post("./lists", list);
     // console.log(list);
+    this.setState({
+      listCreated: true,
+      name: "",
+      destination: "",
+      category: ""
+    });
+    // this.props.getLists();
   }
 
   render() {
     return (
       <div>
         {this.state.listCreated ? (
-          <Main />
+          <AllLists />
         ) : (
           <div className="field is-grouped-center">
             <form onSubmit={this.handleSubmit}>

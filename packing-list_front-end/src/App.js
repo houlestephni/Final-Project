@@ -3,7 +3,7 @@ import "./App.css";
 import "bulma/css/bulma.css";
 
 import AddList from "./components/AddList";
-import Main from "./components/Main";
+import AllLists from "./components/AllLists";
 import Welcome from "./components/Welcome";
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.seeLists ? (
-          <Main />
+          <AllLists />
         ) : (
           <div className="columns">
             <div className="column is-half">

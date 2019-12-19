@@ -34,7 +34,7 @@ class List extends Component {
         {allItems.map(item => {
           return <div key={item.id}>{item.name}</div>;
         })}
-        <NewItem allItems={allItems} list={list} />
+        <NewItem allItems={allItems} list={list} getItems={this.getItems} />
       </div>
     );
   }
