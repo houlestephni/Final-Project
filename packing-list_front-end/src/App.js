@@ -34,12 +34,19 @@ class App extends Component {
               <Welcome />
             </div>
             <div className=" column hero is-half is-danger is-fullheight is-bold">
-              <div className="column">
-                <button className="button is-large" onClick={this.seeLists}>
-                  See Lists
-                </button>
-                <div className="column">
-                  <AddList />
+              <div class="hero-body">
+                <div className="container">
+                  <h1 class="title">
+                    Create a packing list for your next trip!
+                  </h1>
+                  <div className="column">
+                    <button className="button is-large" onClick={this.seeLists}>
+                      See Lists
+                    </button>
+                    <div className="column">
+                      <AddList />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

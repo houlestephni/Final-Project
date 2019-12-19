@@ -98,7 +98,7 @@ class NewListForm extends Component {
               <div className="field is-grouped-center">
                 <div className="control">
                   <input
-                    className="button is-danger is-medium"
+                    className="button center is-medium"
                     type="submit"
                     value="Enter"
                   ></input>
