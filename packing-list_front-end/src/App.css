@@ -3,3 +3,12 @@
 .App {
   text-align: center;
 }
+.listName {
+  background-color: gray;
+  width: 50%;
+  display: inline-flex;
+  text-align: center;
+  padding: 1rem;
+  margin: 3%;
+  border: 1px black solid;
+}

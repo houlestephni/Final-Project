@@ -25,17 +25,19 @@ class AllLists extends Component {
         {this.state.selectedList ? (
           <List allLists={allLists} list={list} />
         ) : (
-          <div>
-            <h1>All Lists</h1>
-            {allLists.map(list => (
-              <div
-                onClick={() => this.selectList(list)}
-                id={list.id}
-                key={list.id}
-              >
-                {list.name}
-              </div>
-            ))}
+          <div className="columns">
+            <div className="column">
+              {allLists.map(list => (
+                <div
+                  className="tile is-4 column"
+                  onClick={() => this.selectList(list)}
+                  id={list.id}
+                  key={list.id}
+                >
+                  {list.name}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
