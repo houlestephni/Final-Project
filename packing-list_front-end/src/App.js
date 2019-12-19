@@ -27,18 +27,17 @@ class App extends Component {
           <Main />
         ) : (
           <div className="columns">
-            <div className="column">
+            <div className="column is-half">
               <Welcome />
             </div>
-            <div className="column">
-              <button
-                className="button is-danger is-large"
-                onClick={this.seeLists}
-              >
-                See Lists
-              </button>
+            <div className=" column hero is-half is-danger is-fullheight is-bold">
               <div className="column">
-                <AddList />
+                <button className="button is-large" onClick={this.seeLists}>
+                  See Lists
+                </button>
+                <div className="column">
+                  <AddList />
+                </div>
               </div>
             </div>
           </div>
