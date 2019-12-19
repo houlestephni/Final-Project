@@ -26,7 +26,10 @@ class AddList extends Component {
             getLists={this.getLists}
           />
         ) : (
-          <button className="button is-large" onClick={this.onSubmit}>
+          <button
+            className="button is-outlined is-large"
+            onClick={this.onSubmit}
+          >
             Create New List
           </button>
         )}

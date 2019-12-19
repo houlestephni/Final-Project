@@ -12,7 +12,6 @@ class AllLists extends Component {
       // allLists: [this.props.allLists]
     };
     this.getLists = this.getLists.bind(this);
-
     this.selectList = this.selectList.bind(this);
   }
   componentDidMount() {

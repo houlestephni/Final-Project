@@ -5,6 +5,8 @@ import "bulma/css/bulma.css";
 import AddList from "./components/AddList";
 import AllLists from "./components/AllLists";
 import Welcome from "./components/Welcome";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor() {
@@ -23,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         {this.state.seeLists ? (
           <AllLists />
         ) : (
@@ -42,6 +45,7 @@ class App extends Component {
             </div>
           </div>
         )}
+        <Footer />
       </div>
     );
   }

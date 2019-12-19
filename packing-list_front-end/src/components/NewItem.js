@@ -34,7 +34,7 @@ class NewItem extends Component {
             <div className="control">
               <input
                 className="input"
-                value={this.state.term}
+                value={this.state.item}
                 onChange={this.handleChange}
                 placeholder="Add An Item"
               />

@@ -7,7 +7,10 @@ class Welcome extends Component {
         <section className="">
           <div className="hero-body">
             <div className="container">
-              <img src="../../alpacamybag.png" />
+              <img
+                src="../../images/alpacamybag.png"
+                alt="alpaca and suitcase"
+              />
               {/* <h1 className="title">Alpaca My Bags!</h1>
               <h2 className="subtitle">Are you ready for your next trip?</h2> */}
             </div>
