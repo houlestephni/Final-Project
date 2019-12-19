@@ -20,14 +20,30 @@ class NewItem extends Component {
       name: this.state.item
     };
     await axios.post(`./lists/${this.props.list.id}/items`, item);
+    this.setState({
+      item: ""
+    });
+    this.props.getItems();
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input value={this.state.term} onChange={this.handleChange} />
-          <button>Add New Item</button>
+          <div className="field has-addons has-addons-centered">
+            <div className="control">
+              <input
+                className="input"
+                value={this.state.term}
+                onChange={this.handleChange}
+                placeholder="Add An Item"
+              />
+            </div>
+
+            <div className="control">
+              <button className="button is-danger is-info">+</button>
+            </div>
+          </div>
         </form>
       </div>
     );

@@ -21,9 +21,14 @@ class AddList extends Component {
     return (
       <div>
         {this.state.createList ? (
-          <NewListForm allLists={this.props.allLists} />
+          <NewListForm
+            allLists={this.props.allLists}
+            getLists={this.getLists}
+          />
         ) : (
-          <button onClick={this.onSubmit}>Create New List</button>
+          <button className="button is-large" onClick={this.onSubmit}>
+            Create New List
+          </button>
         )}
       </div>
     );
