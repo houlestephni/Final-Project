@@ -67,7 +67,7 @@ class List extends Component {
               key={item.id}
               id={item.id}
             >
-              {item.name}
+              <h3>{item.name}</h3>
             </div>
           );
         })}

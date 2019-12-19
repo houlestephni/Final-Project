@@ -43,11 +43,12 @@ class AllLists extends Component {
           <div>
             {allLists.map(list => (
               <div
+                className="listDiv"
                 onClick={() => this.selectList(list)}
                 id={list.id}
                 key={list.id}
               >
-                {list.name}
+                <h3 className="listName">{list.name}</h3>
               </div>
             ))}
           </div>

@@ -17,8 +17,21 @@ nav {
   padding: 10px;
   width: 100%;
 }
-footer {
+.footer {
   margin: 0;
-  height: 2vh;
-  position: sticky;
+  height: 2rem;
+  /* position: absolute; */
+  text-align: center;
+  bottom: 0;
+}
+.listDiv {
+}
+.listName {
+  width: 30vw;
+  display: inline-flex;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem;
+  /* margin: 1rem; */
 }
