@@ -17,7 +17,6 @@ class List extends Component {
       selectedItem: false
     };
     this.getItems = this.getItems.bind(this);
-    // this.selectItem = this.selectItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
 
@@ -33,14 +32,6 @@ class List extends Component {
     // console.log(this.state.allItems);
   }
 
-  // selectItem(item) {
-  //   this.setState({
-  //     selectedItem: true,
-  //     item: item
-  //   });
-  //   console.log(this.state.item);
-  // }
-
   async deleteItem(id) {
     await axios.delete(`${base_url}/items/${id}`);
     const filteredItems = this.state.allItems.filter(item => {
@@ -54,9 +45,7 @@ class List extends Component {
   render() {
     const { list } = this.props;
     const { allItems } = this.state;
-    // let style = {
-    //   textDecoration: this.state.isDone ? "line-through" : "none"
-    // };
+
     return (
       <div>
         <h1 className="oneListName">List Name: {list.name}</h1>
@@ -67,13 +56,7 @@ class List extends Component {
           <ul className="itemList">
             {allItems.map(item => {
               return (
-                <li
-                  className="item"
-                  // style={style}
-                  // onClick={() => this.selectItem(item)}
-                  key={item.id}
-                  id={item.id}
-                >
+                <li className="item" key={item.id} id={item.id}>
                   <input className="itemCheckbox" type="checkbox" />
                   <label className="itemLabel">{item.name}</label>
                   <span

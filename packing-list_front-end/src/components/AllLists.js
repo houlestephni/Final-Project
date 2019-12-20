@@ -20,6 +20,7 @@ class AllLists extends Component {
     };
     this.getLists = this.getLists.bind(this);
     this.selectList = this.selectList.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
   componentDidMount() {
     this.getLists();
@@ -38,26 +39,46 @@ class AllLists extends Component {
       list: list
     });
   }
+  async deleteList(id) {
+    await axios.delete(`${base_url}/lists/${id}`);
+    const filteredLists = this.state.allLists.filter(list => {
+      return list.id !== id;
+    });
+    this.setState({
+      allLists: filteredLists
+    });
+  }
 
   render() {
     const { allLists, list } = this.state;
-    // const { list } = this.state;
     return (
       <div>
         {this.state.selectedList ? (
           <List allLists={allLists} list={list} />
         ) : (
           <div>
-            {allLists.map(list => (
-              <div
-                className="listDiv"
-                onClick={() => this.selectList(list)}
-                id={list.id}
-                key={list.id}
-              >
-                <h3 className="listName">{list.name}</h3>
-              </div>
-            ))}
+            <div className="listWrapper">
+              <ul className="listOfLists">
+                {allLists.map(list => {
+                  return (
+                    <li
+                      className="list"
+                      onClick={() => this.selectList(list)}
+                      id={list.id}
+                      key={list.id}
+                    >
+                      <h3 className="listName">{list.name}</h3>
+                      <button
+                        className="deleteListBtn"
+                        onClick={() => this.deleteList(list.id)}
+                      >
+                        x
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
             <br></br>
             <br></br>
             <div>

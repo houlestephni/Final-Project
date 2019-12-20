@@ -33,19 +33,11 @@ nav {
   bottom: 0;
   width: 100%;
 }
-.listDiv {
-  display: inline-flex;
-  align-content: center;
-}
-.listName {
-  width: 30vw;
-  display: inline-flex;
-  text-align: center;
+/* .listName {
   font-size: 1.2rem;
   font-weight: 800;
-  padding: 1rem;
-  /* margin: 1rem; */
-}
+  padding: 0.5rem;
+} */
 h3 {
   font-weight: 800;
 }
@@ -66,7 +58,8 @@ ul.itemList {
   padding: 0 25px;
 }
 
-li.item {
+li.item,
+li.list {
   list-style-type: none;
   font-family: Tahoma;
   font-size: 1.2em;
@@ -78,6 +71,10 @@ li.item:hover .deleteItemBtn {
   visibility: visible;
   opacity: 1;
 }
+/* li.list.hover .deleteListBtn {
+  visibility: visible;
+  opacity: 1;
+} */
 input.itemCheckbox {
   position: relative;
   float: left;
@@ -124,7 +121,8 @@ input.itemCheckbox:checked + label.itemLabel {
   overflow: auto;
 }
 
-.deleteItemBtn {
+.deleteItemBtn,
+.deleteListBtn {
   float: right;
   color: #ff3860;
   background: rgba(0, 0, 0, 0);
@@ -133,9 +131,9 @@ input.itemCheckbox:checked + label.itemLabel {
   border: 1px solid white;
   border-radius: 50%;
   padding: 10px 5px;
-  visibility: hidden;
-  opacity: 0;
   line-height: 0;
   margin-right: 5px;
   cursor: default;
+  visibility: hidden;
+  opacity: 0;
 }

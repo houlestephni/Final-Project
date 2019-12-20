@@ -51,7 +51,7 @@ class NewListForm extends Component {
       destination: "",
       category: ""
     });
-    // this.props.getLists();
+    this.props.getLists();
   }
 
   render() {
