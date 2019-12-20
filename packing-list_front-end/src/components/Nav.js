@@ -13,17 +13,24 @@ class Nav extends Component {
               width="60"
               height="16"
             />
-            <a
-              role="button"
-              class="navbar-burger burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbarBasicExample"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
+            <a role="button" class="navbar-burger burger" data-target="navMenu">
+              <span></span>
+              <span></span>
+              <span></span>
             </a>
+          </div>
+          <div id="navMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <a href="#" class="navbar-item is-active">
+                Home
+              </a>
+              <a href="#" class="navbar-item">
+                Lists
+              </a>
+              <a href="#" class="navbar-item">
+                Add List
+              </a>
+            </div>
           </div>
         </nav>
       </div>
