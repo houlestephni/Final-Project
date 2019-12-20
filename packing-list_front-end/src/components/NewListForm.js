@@ -36,17 +36,17 @@ class NewListForm extends Component {
   //   });
   //   console.log(this.state.allLists);
   // }
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
     const list = {
       name: this.state.name,
       destination: this.state.destination,
       category: this.state.category
     };
-    await axios.post(`${base_url}/lists`, list);
+    axios.post(`${base_url}/lists`, list);
     // console.log(list);
     this.setState({
-      listCreated: true,
+      // listCreated: !this.state.listCreated
       name: "",
       destination: "",
       category: ""
@@ -104,7 +104,7 @@ class NewListForm extends Component {
               <div className="field is-grouped-center">
                 <div className="control">
                   <input
-                    className="button center is-medium"
+                    className="button is-danger is-outlined is-medium"
                     type="submit"
                     value="Enter"
                   ></input>

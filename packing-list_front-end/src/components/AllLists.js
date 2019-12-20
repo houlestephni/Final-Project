@@ -48,9 +48,6 @@ class AllLists extends Component {
           <List allLists={allLists} list={list} />
         ) : (
           <div>
-            <div>
-              <AddList />
-            </div>
             {allLists.map(list => (
               <div
                 className="listDiv"
@@ -61,6 +58,11 @@ class AllLists extends Component {
                 <h3 className="listName">{list.name}</h3>
               </div>
             ))}
+            <br></br>
+            <br></br>
+            <div>
+              <AddList getLists={this.getLists} />
+            </div>
           </div>
         )}
       </div>

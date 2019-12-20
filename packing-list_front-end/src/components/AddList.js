@@ -18,13 +18,11 @@ class AddList extends Component {
   }
 
   render() {
+    const { getLists } = this.props;
     return (
       <div>
         {this.state.createList ? (
-          <NewListForm
-            allLists={this.props.allLists}
-            getLists={this.getLists}
-          />
+          <NewListForm getLists={getLists} />
         ) : (
           <button
             className="button is-danger is-outlined is-large"

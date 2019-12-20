@@ -17,7 +17,8 @@ class List extends Component {
       selectedItem: false
     };
     this.getItems = this.getItems.bind(this);
-    this.selectItem = this.selectItem.bind(this);
+    // this.selectItem = this.selectItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   componentDidMount() {
@@ -32,24 +33,21 @@ class List extends Component {
     // console.log(this.state.allItems);
   }
 
-  selectItem(item) {
-    this.setState({
-      selectedItem: true,
-      item: item
-    });
-    console.log(this.state.item);
-    // this.handleDone(item.id);
-  }
-
-  // handleDone() {
-  //  if(item.id)
+  // selectItem(item) {
   //   this.setState({
-  //     isDone: !this.state.isDone
+  //     selectedItem: true,
+  //     item: item
   //   });
+  //   console.log(this.state.item);
   // }
-  toogleDone() {
+
+  async deleteItem(id) {
+    await axios.delete(`${base_url}/items/${id}`);
+    const filteredItems = this.state.allItems.filter(item => {
+      return item.id !== id;
+    });
     this.setState({
-      item: this.state.item
+      allItems: filteredItems
     });
   }
 
@@ -63,20 +61,32 @@ class List extends Component {
       <div>
         <h1 className="oneListName">List Name: {list.name}</h1>
         <h3 className="oneListDestination">Destination: {list.destination}</h3>
-        <h3 className="oneList">Category: {list.category}</h3>
+        <h3 className="oneListCategory">Category: {list.category}</h3>
         <NewItem allItems={allItems} list={list} getItems={this.getItems} />
-        {allItems.map(item => {
-          return (
-            <div
-              // style={style}
-              onClick={() => this.selectItem(item)}
-              key={item.id}
-              id={item.id}
-            >
-              <h3>{item.name}</h3>
-            </div>
-          );
-        })}
+        <div className="listWrapper">
+          <ul className="itemList">
+            {allItems.map(item => {
+              return (
+                <li
+                  className="item"
+                  // style={style}
+                  // onClick={() => this.selectItem(item)}
+                  key={item.id}
+                  id={item.id}
+                >
+                  <input className="itemCheckbox" type="checkbox" />
+                  <label className="itemLabel">{item.name}</label>
+                  <span
+                    className="deleteItemBtn"
+                    onClick={() => this.deleteItem(item.id)}
+                  >
+                    x
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
