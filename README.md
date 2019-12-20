@@ -1,6 +1,9 @@
 # Packing List App - Final Project 
 
 
+![Alpaca My Bag](https://user-images.githubusercontent.com/53283802/71259619-d7789000-2306-11ea-9276-da6bbe3a3d42.png
+)
+
 Technology 
 ====
 * React
