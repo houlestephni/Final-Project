@@ -1,8 +1,7 @@
 # Packing List App - Final Project 
 
 
-![Alpaca My Bag](https://user-images.githubusercontent.com/53283802/71259619-d7789000-2306-11ea-9276-da6bbe3a3d42.png
-)
+![Alpaca My Bag](https://user-images.githubusercontent.com/53283802/73035007-aebb4d00-3e14-11ea-95f3-6192774d932b.png)
 
 Technology 
 ====
